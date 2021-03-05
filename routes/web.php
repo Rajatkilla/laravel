@@ -13,6 +13,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/Rajat', function () {
     return view('welcome');
+
 });
+Route::get('/hello', function () {
+    return view('firstpage');
+     
+});
+Route::get('/welcome', function () {
+    return view('secondpage');
+     
+});
+Route::get('/saya','App\Http\Controllers\myController@index');
+
+    
+     
