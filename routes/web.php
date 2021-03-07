@@ -23,9 +23,12 @@ Route::get('/hello', function () {
 });
 Route::get('/welcome', function () {
     return view('secondpage');
+
+
      
 });
 Route::get('/saya','App\Http\Controllers\myController@index');
 
     
      
+Route::get('/addproduct','App\Http\Controllers\myController@showproductform');
