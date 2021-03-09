@@ -24,9 +24,11 @@ class myController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function show()  
+
     {
-        //
+        $showdata=Product::orderBy('id','desc')->get();
+        return view('showproduct',['showdata'=>$showdata]);
     }
 
     /**
@@ -60,7 +62,7 @@ class myController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function rajat($id)
     {
         //
     }
