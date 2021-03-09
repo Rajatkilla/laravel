@@ -8,10 +8,16 @@
 <body>
 	<div class="container">
 		<h1 mb-2>Add Product Form</h1>
-		<form method="post"enctype="multipart/form-data" action="">
+		@if(Session::has('msg'))
+		<div class="alert alert-success">
+			{{Session::get('msg')}}
+		</div>
+		@endif
+		<form method="post" enctype="multipart/form-data" action="{{route('storeproduct')}}">
+			@csrf
 			<div class="col-md-6">
 				<label for="productname">Product Name</label>
-				<input type="text" class="form-control" name="pname" placeholder="enter productname" id="inputproductname">	
+				<input type="text" class="form-control" name="pname" placeholder="enter product name" id="inputproductname">	
 			</div>
 			<div class="col-md-6">
 				<label for="price">Product Price</label>
