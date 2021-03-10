@@ -3,6 +3,8 @@
 <head>
 	<title></title>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
 </head>
 <body>
 <div class="container">
@@ -21,11 +23,15 @@
   <tbody>
   	@foreach($showdata as $s)
     <tr>
-     <td>{{$s->product_name}}</td>
+     <td>{{$s->productname}}</td>
      <td>{{$s->product_price}}</td>
      <td>{{$s->product_quantity}}</td>
      <td>{{$s->product_description}}</td>
      <td><img src="{{asset('uploads/products')}}/{{$s->product_image}}" width="50"></td>
+     <td>
+     	<a href=""><button class="btn btn-primary"><i class="bi bi-pencil-square  text-white"></i></button></a>
+     	<a href=""><button class="btn btn-danger"><i class="bi bi-trash-fill"></i></button></a>
+     </td>
     </tr>
     @endforeach
   </tbody>
