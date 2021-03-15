@@ -95,7 +95,25 @@ class myController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $product=Product::find($id);
+         if ($request->hasFile('image')){
+            $file=$request->File('image');
+            $image=mt_rand(10001,9999999).'_'.$file->getClientOriginalName();
+            $file->move('uploads/products/',$image);
+        
+         if($product->product_image){
+            unlink('uploads/products/'.$product->product_image);
+        }
+        $product->product_image=$image;
+        }
+        $product->update([
+            'productname'=>$request->get('pname'),
+            'product_price'=>$request->get('price'),
+            'product_quantity'=>$request->get('quantity'),
+            'product_description'=>$request->get('description')
+        ]);
+         $request->session()->flash('msg','Product has been added updated successfully');
+        return redirect()->route('showproduct');
     }
 
     /**
